@@ -1,6 +1,11 @@
 package com.app.nike.adapter;
 
+/**
+ * Created by muhammad on 8/3/2016.
+ */
+
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,72 +14,99 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.nike.R;
+import com.app.nike.Slider;
 
-import java.util.ArrayList;
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+    LayoutInflater mLayoutInflator;
 
-/**
- * Created by Shahid on 7/26/2016.
- */
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.CardHolder> {
+    private String[] titles = {"Shoes One",
+            "Shoes Two",
+            "Shoes Three",
+            "Shoes Four",
+            "Shoes Five",
+            "Shoes Six",
+            "Shoes Seven",
+            "Shoes Eight"};
 
-    LayoutInflater mLayoutInflater;
-    private ArrayList<String> price = new ArrayList<>();
-    private ArrayList<String> description = new ArrayList<>();
-    private static Integer[] images = {R.drawable.shoes, R.drawable.shoesa,R.drawable.shoesb};
+    private String[] details = {"Item one details",
+            "Item two details", "Item three details",
+            "Item four details", "Item file details",
+            "Item six details", "Item seven details",
+            "Item eight details"};
+
+    private int[] images = { R.drawable.android_image_1,
+            R.drawable.android_image_2,
+            R.drawable.android_image_3,
+            R.drawable.android_image_4,
+            R.drawable.android_image_5,
+            R.drawable.android_image_6,
+            R.drawable.android_image_7,
+            R.drawable.android_image_8 };
 
     public RecyclerAdapter(Context context) {
-        mLayoutInflater = LayoutInflater.from(context);
-        price = getPrice();
-        description = getDescription();
+        mLayoutInflator = LayoutInflater.from(context);
     }
 
-    private ArrayList<String> getDescription() {
-        ArrayList<String> des = new ArrayList<>();
-        for (int i = 0; i < 3 ; i++) {
-            des.add("des :"+1);
-        }
-        return des;
-    }
+    class ViewHolder extends RecyclerView.ViewHolder{
 
-    private ArrayList<String> getPrice() {
-        ArrayList<String> priceb = new ArrayList<>();
-        for (int i = 0; i < 3 ; i++) {
-            priceb.add("$"+i);
+        public int currentItem;
+        public ImageView itemImage;
+        public TextView itemTitle;
+        public TextView itemDetail;
+
+        private Context context;
+        public ViewHolder(View itemView) {
+            super(itemView);
+            context = itemView.getContext();
+            itemImage = (ImageView)itemView.findViewById(R.id.item_image);
+            itemTitle = (TextView)itemView.findViewById(R.id.item_title);
+            itemDetail =
+                    (TextView)itemView.findViewById(R.id.item_detail);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    {
+
+                        final Intent intent;
+                        switch ( position){
+                            case 0:
+                                intent =  new Intent(context,Slider.class);
+                                break;
+
+                            case 1:
+                                intent =  new Intent(context, Slider.class);
+                                break;
+
+                            default:
+                                intent =  new Intent(context, Slider.class);
+                                break;
+                        }
+                        context.startActivity(intent);
+
+                    }
+
+                }
+            });
         }
-        return priceb;
     }
 
     @Override
-    public CardHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = mLayoutInflater.inflate(R.layout.cardview_container, parent, false);
-        CardHolder cardHolder = new CardHolder(view);
-        return cardHolder;
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = mLayoutInflator.inflate(R.layout.cardview_container, viewGroup, false);
+        ViewHolder viewHolder = new ViewHolder(v);
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(CardHolder holder, int position) {
-        holder.textViewHeading.setText(price.get(position));
-        holder.textViewDescription.setText(description.get(position));
-        holder.imageView.setImageResource(images[position]);
-
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        viewHolder.itemTitle.setText(titles[i]);
+        viewHolder.itemDetail.setText(details[i]);
+        viewHolder.itemImage.setImageResource(images[i]);
     }
 
     @Override
     public int getItemCount() {
-        return 3;
-    }
-
-    public static class CardHolder extends RecyclerView.ViewHolder{
-
-        TextView textViewHeading;
-        TextView textViewDescription;
-        ImageView imageView;
-        public CardHolder(View itemView) {
-            super(itemView);
-
-            textViewHeading = (TextView) itemView.findViewById(R.id.tvprice);
-            textViewDescription = (TextView) itemView.findViewById(R.id.tvdescription);
-            imageView = (ImageView) itemView.findViewById(R.id.thumbnail);
-        }
+        return titles.length;
     }
 }

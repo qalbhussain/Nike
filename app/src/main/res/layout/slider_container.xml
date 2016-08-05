@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.app.nike.Slider">
+
+    <RelativeLayout
+        android:id="@+id/gallery_paging"
+        android:layout_width="fill_parent"
+        android:layout_height="1200dp" >
+
+        <com.example.muhammad.nike_app.Gallery_Activity
+            android:id="@+id/mygallery01"
+            android:layout_width="fill_parent"
+            android:layout_height="300dp"
+            android:fadingEdge="none"
+            android:spacing="0px"
+            android:gravity="top" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="NIKE SB STEFAN JANOSKI MAX"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:singleLine="false"
+            android:textStyle="bold"
+            android:textColor="#bf1616" />
+
+        <LinearLayout
+            android:id="@+id/image_count"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="#00000000"
+            android:gravity="center"
+
+            android:orientation="horizontal"
+            android:layout_marginBottom="210dp">
+        </LinearLayout>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EXPERIENCE IT"
+            android:id="@+id/button"
+            android:background="#ee2626"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="$ 130"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/mygallery01"
+            android:layout_centerHorizontal="true"
+            android:textColor="#bf1616"
+            android:textSize="30dp"
+            android:textIsSelectable="false"
+            android:textStyle="bold"
+            android:shadowColor="#d8d5d5"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ULTRA LIGHT."
+            android:id="@+id/textView3"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView2"
+            android:layout_alignLeft="@+id/button"
+            android:layout_alignStart="@+id/button"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ULTRA COMFORTABLE."
+            android:id="@+id/textView4"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_below="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvprice"
+            android:id="@+id/item_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30sp"
@@ -22,18 +22,18 @@
             />
 
         <ImageView
-            android:id="@+id/thumbnail"
+            android:id="@+id/item_image"
             android:layout_width="wrap_content"
             android:scaleType="centerCrop"
             android:layout_height="300dp"
-            android:layout_below="@+id/tvprice"
+            android:layout_below="@+id/item_title"
             android:layout_centerHorizontal="true"/>
 
         <TextView
-            android:id="@+id/tvdescription"
+            android:id="@+id/item_detail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/thumbnail"
+            android:layout_below="@id/item_image"
             android:textSize="20sp"
             android:layout_centerHorizontal="true"
 
